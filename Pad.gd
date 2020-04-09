@@ -6,12 +6,12 @@ func _ready() -> void:
 	self.connect("area_entered", self, "change_ball_direction")
 
 
-
 func _process(delta: float) -> void:
+
 	var player = get_name()
 	var pos = self.get_position()
 
-	if pos.y>0+get_node("..").pad_size.y/2 and Input.is_action_pressed(player+"_up"):
+	if pos.y>get_node("..").pad_size.y/2 and Input.is_action_pressed(player+"_up"):
 		pos.y += -get_node("..").pad_speed *delta
 
 	if pos.y<get_node("..").screen_size.y-get_node("..").pad_size.y/2 and Input.is_action_pressed(player+"_down"):
